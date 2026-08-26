@@ -14,6 +14,8 @@ const FOCUS_LABELS: Record<Focus, string> = {
 
 const NOISE_NAME = /(untitled|test[-_]?repo|asdf|foobar|hello[-_]?world|homework|assignment)/i;
 const NOISE_OWNER = /^(user\d{5,}|[a-z]+\d{6,}|[a-z0-9]{18,})$/i;
+const NOISE_COPY =
+  /airdrop|\bnft\b|token sale|click\s*&\s*build|\bfree\b.*open models|crypto[- ]?agent|earn money|passive income/i;
 
 export function focusLabel(focus: Focus): string {
   return FOCUS_LABELS[focus];
@@ -71,15 +73,20 @@ export function isLearnableCandidate(repo: GithubRepo, dateKey: string): boolean
   if (repo.size <= 0) return false;
 
   const description = (repo.description ?? "").trim();
-  if (description.length < 24) return false;
+  if (description.length < 32) return false;
   if (description.toLowerCase() === repo.name.toLowerCase()) return false;
   if (NOISE_NAME.test(repo.name) || NOISE_NAME.test(description)) return false;
+  if (NOISE_COPY.test(description) || NOISE_COPY.test(repo.name)) return false;
   if (NOISE_OWNER.test(repo.owner.login)) return false;
+  if (repo.size < 20) return false;
 
   const createdDays = daysBetween(dateKey, repo.created_at);
   const pushedDays = daysBetween(dateKey, repo.pushed_at.slice(0, 10));
   if (createdDays > 50 && pushedDays > 18) return false;
   if (createdDays > 120 && repo.stargazers_count > 15000) return false;
+
+  // 0-star brand-new shells are allowed only if they already look like real code.
+  if (repo.stargazers_count === 0 && (repo.size < 80 || description.length < 48)) return false;
 
   const haystack = haystackOf(repo);
   return AGENT_NOW.some((word) => haystack.includes(word));
@@ -154,7 +161,9 @@ function computeScore(
     score += 4;
   }
 
-  // Stars are metadata, not rank. Slightly downrank mega-repos everyone already knows.
+  // Stars are metadata, not rank. A small traction bonus beats empty spam,
+  // but 200 stars is not scored higher than 8.
+  if (repo.stargazers_count >= 5) score += 8;
   if (repo.stargazers_count > 30000) score -= 12;
   return score;
 }
@@ -201,9 +210,9 @@ function learningReason(item: ScoredRepo, dateKey: string): string {
 }
 
 function targetCount(poolSize: number): number {
-  if (poolSize >= 36) return 10;
-  if (poolSize >= 18) return 8;
-  if (poolSize >= 10) return 6;
+  if (poolSize >= 28) return 8;
+  if (poolSize >= 14) return 7;
+  if (poolSize >= 8) return 6;
   return Math.max(1, Math.min(5, poolSize));
 }
 

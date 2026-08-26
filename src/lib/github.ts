@@ -30,19 +30,19 @@ export function buildSearchQueries(dateKey: string): { label: string; query: str
   return [
     {
       label: "ai-agent",
-      query: `topic:ai-agent fork:false archived:false pushed:>${pushed}`,
+      query: `topic:ai-agent fork:false archived:false pushed:>${pushed} stars:3..50000`,
     },
     {
       label: "mcp",
-      query: `(topic:mcp OR "model context protocol" OR mcp-server) fork:false archived:false created:>${created}`,
+      query: `(topic:mcp OR "model context protocol" OR mcp-server) fork:false archived:false created:>${created} stars:2..50000`,
     },
     {
       label: "coding-agent",
-      query: `("coding agent" OR "ai agent" OR "llm agent" OR "computer use" OR "claude code") fork:false archived:false created:>${created}`,
+      query: `("coding agent" OR "ai agent" OR "computer use" OR "claude code" OR "agent skill") fork:false archived:false created:>${created} stars:2..50000`,
     },
     {
-      label: "agentic",
-      query: `(topic:agents OR topic:llm OR topic:rag OR topic:agentic) fork:false archived:false created:>${created}`,
+      label: "fresh",
+      query: `(topic:ai-agent OR topic:mcp OR topic:agents) fork:false archived:false created:>${isoDaysBefore(dateKey, 10)}`,
     },
   ];
 }
