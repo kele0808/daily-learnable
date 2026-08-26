@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import { Geist_Mono, Noto_Sans_SC } from "next/font/google";
+import "./globals.css";
+
+const notoSans = Noto_Sans_SC({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "今日可学 · 每日 AI / Agent 仓库",
+  description:
+    "每天精选 1–10 个当下值得学习的 AI、Agent、MCP 相关 GitHub 仓库。不按 star 排行。",
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="zh-CN"
+      className={`dark ${notoSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
+    </html>
+  );
+}
