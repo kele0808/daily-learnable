@@ -1,10 +1,10 @@
+import { readArchivedDigest } from "@/lib/archive";
 import { pickDailyRepos, scoreRepos } from "@/lib/curate";
 import { clampDigestDate, DIGEST_TIMEZONE, todayInShanghai } from "@/lib/dates";
 import { searchGithubRepos } from "@/lib/github";
 import type { DigestResult } from "@/lib/types";
 
-export async function getDailyDigest(rawDate?: string): Promise<DigestResult> {
-  const date = clampDigestDate(rawDate, todayInShanghai());
+export async function searchAndCurate(date: string): Promise<DigestResult> {
   const { repos, warnings } = await searchGithubRepos(date);
   const scored = scoreRepos(repos, date);
   const picks = pickDailyRepos(scored, date);
@@ -19,4 +19,12 @@ export async function getDailyDigest(rawDate?: string): Promise<DigestResult> {
     source: warnings.length > 0 && picks.length > 0 ? "partial" : "github",
     warnings,
   };
+}
+
+export async function getDailyDigest(rawDate?: string): Promise<DigestResult> {
+  const today = todayInShanghai();
+  const requested = clampDigestDate(rawDate, today);
+  const archived = await readArchivedDigest(requested);
+  if (archived) return archived;
+  return searchAndCurate(requested);
 }

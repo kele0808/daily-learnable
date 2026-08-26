@@ -64,6 +64,6 @@ export type DigestResult = {
   picks: DigestPick[];
   searched: number;
   considered: number;
-  source: "github" | "partial";
+  source: "github" | "partial" | "archive";
   warnings: string[];
 };

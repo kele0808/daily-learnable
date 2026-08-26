@@ -1,0 +1,226 @@
+{
+  "date": "2026-08-26",
+  "timezone": "Asia/Shanghai",
+  "count": 8,
+  "picks": [
+    {
+      "id": 1340477960,
+      "name": "proactive-mcp",
+      "fullName": "madrobotnet/proactive-mcp",
+      "url": "https://github.com/madrobotnet/proactive-mcp",
+      "description": "Proactive layer for every AI agent — an MCP server that watches Gmail/Calendar and remembers conversations, so your agent reaches out first when you need it.",
+      "language": "Python",
+      "topics": [],
+      "stars": 2,
+      "createdAt": "2026-08-20T08:42:22Z",
+      "pushedAt": "2026-08-26T13:18:48Z",
+      "owner": "madrobotnet",
+      "ownerUrl": "https://github.com/madrobotnet",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/256992008?v=4",
+      "focus": "mcp",
+      "reason": "这几天刚出现的 MCP 实现。MCP 是当下给模型接工具和数据的主流协议，适合对照规范看落地。",
+      "signals": [
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1342714528,
+      "name": "arcade",
+      "fullName": "openzot/arcade",
+      "url": "https://github.com/openzot/arcade",
+      "description": "A software factory that makes browser games: zot designs, builds and playtests a new one every shift, then ships it unreviewed.",
+      "language": "JavaScript",
+      "topics": [
+        "agentic-ai",
+        "ai-agent",
+        "autonomous-agents",
+        "browser-games",
+        "canvas",
+        "game-development"
+      ],
+      "stars": 5,
+      "createdAt": "2026-08-22T10:46:12Z",
+      "pushedAt": "2026-08-26T13:33:52Z",
+      "owner": "openzot",
+      "ownerUrl": "https://github.com/openzot",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/261293105?v=4",
+      "focus": "agent",
+      "reason": "这几天刚出现的 用 JavaScript 写的 Agent 框架。适合看任务循环、工具调用和记忆是怎么串起来的。",
+      "signals": [
+        "agent"
+      ]
+    },
+    {
+      "id": 1209609017,
+      "name": "agent-config",
+      "fullName": "event4u-app/agent-config",
+      "url": "https://github.com/event4u-app/agent-config",
+      "description": "Every claim machine-checked, including \"zero runtime daemon\" — governed skills, rules and replayable state. One contract, every host agent.",
+      "language": "TypeScript",
+      "topics": [
+        "agent-governance",
+        "agent-skills",
+        "ai-agent",
+        "ai-video",
+        "cinematic-ai-video",
+        "claude-code"
+      ],
+      "stars": 8,
+      "createdAt": "2026-04-13T15:45:28Z",
+      "pushedAt": "2026-08-26T13:47:23Z",
+      "owner": "event4u-app",
+      "ownerUrl": "https://github.com/event4u-app",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/199339632?v=4",
+      "focus": "mcp",
+      "reason": "近期仍在更新的 MCP 实现。MCP 是当下给模型接工具和数据的主流协议，适合对照规范看落地。",
+      "signals": [
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1192770647,
+      "name": "vault-sync",
+      "fullName": "Ub207/vault-sync",
+      "url": "https://github.com/Ub207/vault-sync",
+      "description": "AI Employee - Platinum Tier | A Digital FTE that manages business operations 24/7 | Email, Social Media, Invoicing, WhatsApp - all automated with human-in-the-loop approval",
+      "language": "Python",
+      "topics": [
+        "ai-agent",
+        "ai-automation",
+        "automation",
+        "claude-ai",
+        "mcp",
+        "obsidian"
+      ],
+      "stars": 8,
+      "createdAt": "2026-03-26T14:45:45Z",
+      "pushedAt": "2026-08-26T13:48:18Z",
+      "owner": "Ub207",
+      "ownerUrl": "https://github.com/Ub207",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/111739646?v=4",
+      "focus": "mcp",
+      "reason": "近期仍在更新的 MCP 实现。MCP 是当下给模型接工具和数据的主流协议，适合对照规范看落地。",
+      "signals": [
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1317702501,
+      "name": "cc-token-meter",
+      "fullName": "Sabeekhann/cc-token-meter",
+      "url": "https://github.com/Sabeekhann/cc-token-meter",
+      "description": "Private, local Claude Code usage intelligence track tokens, estimated cost, cache efficiency, budgets, projects, and live sessions with zero telemetry.",
+      "language": "JavaScript",
+      "topics": [
+        "ai-agent",
+        "ai-agents",
+        "ai-tools",
+        "analytics",
+        "claude-code",
+        "cli"
+      ],
+      "stars": 3,
+      "createdAt": "2026-07-30T21:41:23Z",
+      "pushedAt": "2026-08-26T13:46:14Z",
+      "owner": "Sabeekhann",
+      "ownerUrl": "https://github.com/Sabeekhann",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/184506080?v=4",
+      "focus": "coding-agent",
+      "reason": "近期仍在更新的编程 Agent。值得对照看它怎么读仓库、改文件、跑命令。",
+      "signals": [
+        "coding-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1266212515,
+      "name": "omnigent",
+      "fullName": "omnigent-ai/omnigent",
+      "url": "https://github.com/omnigent-ai/omnigent",
+      "description": "Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents — swap harnesses without rewriting, enforce policies and sandboxing, and collaborate in real time from any device.",
+      "language": "Python",
+      "topics": [
+        "agent-framework",
+        "agent-governance",
+        "agent-orchestration",
+        "agents",
+        "ai",
+        "ai-agent"
+      ],
+      "stars": 9293,
+      "createdAt": "2026-06-11T12:18:13Z",
+      "pushedAt": "2026-08-26T13:44:15Z",
+      "owner": "omnigent-ai",
+      "ownerUrl": "https://github.com/omnigent-ai",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/292215228?v=4",
+      "focus": "coding-agent",
+      "reason": "近期仍在更新的编程 Agent。值得对照看它怎么读仓库、改文件、跑命令。",
+      "signals": [
+        "coding-agent",
+        "multi-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1345315037,
+      "name": "pi-freeflow",
+      "fullName": "trefeon/pi-freeflow",
+      "url": "https://github.com/trefeon/pi-freeflow",
+      "description": "🌊 23 free curated AI models (up to 1M context) for Oh My Pi & Pi. Thin provider + dumb relay pool to bypass rate limits.",
+      "language": "TypeScript",
+      "topics": [
+        "ai-agent",
+        "ai-models",
+        "cloudflare-workers",
+        "coding-agent",
+        "developer-tools",
+        "free-models"
+      ],
+      "stars": 4,
+      "createdAt": "2026-08-24T19:07:31Z",
+      "pushedAt": "2026-08-26T13:43:26Z",
+      "owner": "trefeon",
+      "ownerUrl": "https://github.com/trefeon",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/95156714?v=4",
+      "focus": "agent",
+      "reason": "这几天刚出现的 用 TypeScript 写的 Agent 框架。适合看任务循环、工具调用和记忆是怎么串起来的。",
+      "signals": [
+        "agent"
+      ]
+    },
+    {
+      "id": 1313550111,
+      "name": "relmio",
+      "fullName": "Demonbane18/relmio",
+      "url": "https://github.com/Demonbane18/relmio",
+      "description": "A safe local browser wizard for installing an OpenAI OAuth sidecar beside self-hosted n8n.",
+      "language": "JavaScript",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "api-key",
+        "chatgpt",
+        "codex",
+        "gpt-2-0-image"
+      ],
+      "stars": 37,
+      "createdAt": "2026-07-27T07:32:35Z",
+      "pushedAt": "2026-08-26T13:37:05Z",
+      "owner": "Demonbane18",
+      "ownerUrl": "https://github.com/Demonbane18",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/65271203?v=4",
+      "focus": "agent",
+      "reason": "近期仍在更新的 用 JavaScript 写的 Agent 框架。适合看任务循环、工具调用和记忆是怎么串起来的。",
+      "signals": [
+        "agent"
+      ]
+    }
+  ],
+  "searched": 60,
+  "considered": 55,
+  "source": "archive",
+  "warnings": []
+}

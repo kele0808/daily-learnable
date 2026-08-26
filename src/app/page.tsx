@@ -1,6 +1,8 @@
 import { DayNav } from "@/components/day-nav";
 import { RepoCard } from "@/components/repo-card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { listArchivedDays } from "@/lib/archive";
 import { formatChineseDate } from "@/lib/dates";
 import { getDailyDigest } from "@/lib/digest";
 import { CircleAlert } from "lucide-react";
@@ -11,7 +13,10 @@ export default async function Home({
   searchParams: Promise<{ date?: string }>;
 }) {
   const { date: dateParam } = await searchParams;
-  const digest = await getDailyDigest(dateParam);
+  const [digest, archivedDays] = await Promise.all([
+    getDailyDigest(dateParam),
+    listArchivedDays(),
+  ]);
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-8 sm:px-6 sm:py-12">
@@ -21,19 +26,25 @@ export default async function Home({
           每天 1–10 个当下值得看的 AI / Agent 仓库
         </h1>
         <p className="mt-3 max-w-2xl text-muted-foreground leading-7">
-          不按 star 排行。每天从 GitHub 搜最近出现、正在更新的 Agent、MCP、编程 Agent、RAG
-          等项目，只留下描述清楚、能学到东西的那几个。
+          不按 star 排行。每天的精选会写进仓库的{" "}
+          <code className="rounded bg-muted px-1.5 py-0.5 text-sm">digests/</code>
+          ，GitHub 上随时能翻，网页也会优先读这些存档。
         </p>
       </header>
 
       <section className="mb-6 space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="text-lg font-medium">{formatChineseDate(digest.date)}</h2>
-          <p className="text-sm text-muted-foreground">
-            选出 {digest.count} 个 · 扫描 {digest.searched} 个 · 入围 {digest.considered} 个
-          </p>
+          <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+            <Badge variant={digest.source === "archive" ? "default" : "secondary"}>
+              {digest.source === "archive" ? "已写入仓库" : "实时搜索"}
+            </Badge>
+            <span>
+              选出 {digest.count} 个 · 扫描 {digest.searched} 个 · 入围 {digest.considered} 个
+            </span>
+          </div>
         </div>
-        <DayNav date={digest.date} />
+        <DayNav date={digest.date} archivedDates={archivedDays.map((day) => day.date)} />
       </section>
 
       {digest.warnings.length > 0 ? (
@@ -68,8 +79,12 @@ export default async function Home({
 
       <footer className="mt-12 border-t pt-6 text-sm leading-7 text-muted-foreground">
         <p>
-          筛选规则：只要最近大约 40 天内新建、或两周内还在推送的公开仓库；必须带能读懂的描述；主题要落在
-          Agent / MCP / RAG / 评测这条线上。star 只展示，不参与打分。同一天的名单会缓存约 6 小时。
+          存档文件：
+          <code className="rounded bg-muted px-1.5 py-0.5 text-xs">
+            digests/{digest.date}.md
+          </code>
+          。筛选规则：最近新建或仍在更新、描述清楚、主题落在 Agent / MCP / RAG /
+          评测。star 只展示，不参与打分。
         </p>
         <p className="mt-2">
           JSON：{" "}

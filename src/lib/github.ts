@@ -96,9 +96,13 @@ async function searchOnce(query: string): Promise<GithubRepo[]> {
   const token = process.env.GITHUB_TOKEN?.trim();
   if (token) headers.Authorization = `Bearer ${token}`;
 
+  const next = process.env.NEXT_RUNTIME
+    ? { next: { revalidate: 21600 } }
+    : { cache: "no-store" as const };
+
   const response = await fetch(url, {
     headers,
-    next: { revalidate: 21600 },
+    ...next,
   });
 
   if (!response.ok) {
