@@ -1,0 +1,238 @@
+{
+  "date": "2026-08-27",
+  "timezone": "Asia/Shanghai",
+  "count": 8,
+  "picks": [
+    {
+      "id": 1336474673,
+      "name": "kram",
+      "fullName": "codexmark/kram",
+      "url": "https://github.com/codexmark/kram",
+      "description": "A local-first coding agent runtime, multi-provider LLM gateway, and terminal workspace — built from scratch in Go.",
+      "language": "Go",
+      "topics": [
+        "ai-agent",
+        "coding-agent",
+        "developer-tools",
+        "golang",
+        "llm",
+        "local-first"
+      ],
+      "stars": 12,
+      "createdAt": "2026-08-17T00:01:31Z",
+      "pushedAt": "2026-08-27T00:55:00Z",
+      "owner": "codexmark",
+      "ownerUrl": "https://github.com/codexmark",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/16628997?v=4",
+      "focus": "coding-agent",
+      "reason": "10 天前用 Go 从零写的本地编程 Agent：runtime、多模型网关、终端工作区都在一个仓库，还带 evals/ 和 DECISIONS.md。适合对照看它为什么不套现成框架。",
+      "signals": [
+        "coding-agent",
+        "agent",
+        "learn-by-reading"
+      ]
+    },
+    {
+      "id": 1329447118,
+      "name": "clanker",
+      "fullName": "maci0/clanker",
+      "url": "https://github.com/maci0/clanker",
+      "description": "Self-improving AI agent harness in Zig 0.16 — gated self-patch loop, sandboxed WASM tools, CLI + web UI",
+      "language": "Zig",
+      "topics": [
+        "agent-harness",
+        "ai-agent",
+        "llm",
+        "mcp",
+        "sandboxing",
+        "self-improving"
+      ],
+      "stars": 4,
+      "createdAt": "2026-08-10T05:14:55Z",
+      "pushedAt": "2026-08-27T00:55:49Z",
+      "owner": "maci0",
+      "ownerUrl": "https://github.com/maci0",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/4222082?v=4",
+      "focus": "agent",
+      "reason": "用 Zig 写的自改进 harness。工具跑在沙箱 WASM 里，改自己源码要过 zig build/test 门禁才合入。适合学「Agent 改自己」怎么做得不翻车。",
+      "signals": [
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1346561198,
+      "name": "jardinero",
+      "fullName": "LuxorLabs/jardinero",
+      "url": "https://github.com/LuxorLabs/jardinero",
+      "description": "Tends your codebase while you're away. An always-on AI engineer that reviews your logs, implements your tickets and keeps your pull requests moving, each in a disposable sandbox.",
+      "language": "TypeScript",
+      "topics": [
+        "ai-agent",
+        "autonomous-agents",
+        "code-review",
+        "devtools",
+        "github-app",
+        "linear"
+      ],
+      "stars": 11,
+      "createdAt": "2026-08-25T19:43:31Z",
+      "pushedAt": "2026-08-27T00:53:09Z",
+      "owner": "LuxorLabs",
+      "ownerUrl": "https://github.com/LuxorLabs",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/31187360?v=4",
+      "focus": "coding-agent",
+      "reason": "前天刚出现的常驻编程 Agent：看 Grafana 日志、做 Linear 工单、推 PR，每次都在一次性沙箱里跑。适合看无人值守工程师怎么接 GitHub/Linear。",
+      "signals": [
+        "coding-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1305848640,
+      "name": "jawata-studio",
+      "fullName": "haraldwegner/jawata-studio",
+      "url": "https://github.com/haraldwegner/jawata-studio",
+      "description": "jawata's desktop cockpit — one-click compiler-accurate Java MCP for your AI agents: per-workspace servers, agent hooks & enforcement, seven gated engineering seats, and a learning loop that improves from your real edits. Tauri, AGPL.",
+      "language": "Rust",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "desktop-app",
+        "developer-tools",
+        "java",
+        "mcp"
+      ],
+      "stars": 2,
+      "createdAt": "2026-07-19T16:12:21Z",
+      "pushedAt": "2026-08-26T20:47:06Z",
+      "owner": "haraldwegner",
+      "ownerUrl": "https://github.com/haraldwegner",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/52533649?v=4",
+      "focus": "mcp",
+      "reason": "给 Java 仓库接 compiler-accurate MCP 的 Tauri 桌面控制面。适合看怎么把语言服务器级重构能力，一键写进 Agent 的 MCP 配置。",
+      "signals": [
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1344595326,
+      "name": "winagent-lite",
+      "fullName": "ZYYDI1959/winagent-lite",
+      "url": "https://github.com/ZYYDI1959/winagent-lite",
+      "description": "Local vision-driven Windows GUI agent with a reproducible benchmark",
+      "language": "Python",
+      "topics": [
+        "ai-agent",
+        "benchmark",
+        "computer-use",
+        "gui-automation",
+        "mcp",
+        "ollama"
+      ],
+      "stars": 0,
+      "createdAt": "2026-08-24T05:59:46Z",
+      "pushedAt": "2026-08-27T00:59:33Z",
+      "owner": "ZYYDI1959",
+      "ownerUrl": "https://github.com/ZYYDI1959",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/315732433?v=4",
+      "focus": "eval",
+      "reason": "3 天前出现的本地视觉 GUI Agent，仓库里同时有可复现 benchmark 和 MCP plan 工具。适合看 computer-use 的步骤规划、白名单执行和评测怎么放在一起。",
+      "signals": [
+        "mcp",
+        "eval",
+        "agent"
+      ]
+    },
+    {
+      "id": 1304573079,
+      "name": "mycelium",
+      "fullName": "krapie/mycelium",
+      "url": "https://github.com/krapie/mycelium",
+      "description": "Organize your AI sessions, and carry what they know into the next one.",
+      "language": "JavaScript",
+      "topics": [
+        "ai-agent",
+        "claude-code",
+        "cli",
+        "codex",
+        "developer-tools",
+        "knowledge-management"
+      ],
+      "stars": 37,
+      "createdAt": "2026-07-18T03:44:34Z",
+      "pushedAt": "2026-08-27T01:02:26Z",
+      "owner": "krapie",
+      "ownerUrl": "https://github.com/krapie",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/70474071?v=4",
+      "focus": "skill",
+      "reason": "给 Claude Code / Codex 用的会话知识层：把一次对话里学到的东西带进下一次。适合看 Agent 记忆不是「再塞进 prompt」时怎么做。",
+      "signals": [
+        "skill",
+        "agent"
+      ]
+    },
+    {
+      "id": 1266759362,
+      "name": "musterd",
+      "fullName": "SandRiseStudio/musterd",
+      "url": "https://github.com/SandRiseStudio/musterd",
+      "description": "Muster your agents and humans into persistent teams — across any harness, framework, model, or surface, with a shared communication protocol.",
+      "language": "TypeScript",
+      "topics": [
+        "agents",
+        "ai-agents",
+        "claude-code",
+        "coordination",
+        "local-first",
+        "mcp"
+      ],
+      "stars": 0,
+      "createdAt": "2026-06-11T23:37:27Z",
+      "pushedAt": "2026-08-27T01:02:37Z",
+      "owner": "SandRiseStudio",
+      "ownerUrl": "https://github.com/SandRiseStudio",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/272317879?v=4",
+      "focus": "multi-agent",
+      "reason": "本地优先的多智能体组队协议，人和 Agent 都是一等成员，有 SPEC 和分 package。适合看跨 harness 的持久团队怎么通信。",
+      "signals": [
+        "mcp",
+        "multi-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1339113451,
+      "name": "greenlight",
+      "fullName": "bradsward/greenlight",
+      "url": "https://github.com/bradsward/greenlight",
+      "description": "See what your MCP server is actually doing -- a transparent stdio proxy and live trace viewer for the Model Context Protocol.",
+      "language": "Python",
+      "topics": [
+        "cli",
+        "debugging",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "mcp-inspector"
+      ],
+      "stars": 0,
+      "createdAt": "2026-08-19T05:06:50Z",
+      "pushedAt": "2026-08-27T01:03:10Z",
+      "owner": "bradsward",
+      "ownerUrl": "https://github.com/bradsward",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/60303274?v=4",
+      "focus": "mcp",
+      "reason": "8 天前出现的 MCP stdio 透明代理 + 实时 trace。适合对着真实 JSONL 会话，看握手、慢调用和失败工具调用长什么样。",
+      "signals": [
+        "mcp",
+        "eval"
+      ]
+    }
+  ],
+  "searched": 60,
+  "considered": 55,
+  "source": "archive",
+  "warnings": []
+}
