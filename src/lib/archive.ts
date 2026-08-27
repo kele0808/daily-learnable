@@ -9,7 +9,8 @@ import {
 import type { DigestResult } from "@/lib/types";
 
 export const DIGESTS_DIR = path.join(process.cwd(), "digests");
-const ROOT_README = path.join(process.cwd(), "README.md");
+const ROOT_README_EN = path.join(process.cwd(), "README.md");
+const ROOT_README_ZH = path.join(process.cwd(), "README.zh-CN.md");
 
 export async function readArchivedDigest(date: string): Promise<DigestResult | null> {
   try {
@@ -76,5 +77,6 @@ export async function writeCatalogReadmes(): Promise<void> {
     }),
     "utf8",
   );
-  await writeFile(ROOT_README, rootReadmeMarkdown(days), "utf8");
+  await writeFile(ROOT_README_EN, rootReadmeMarkdown(days, "en"), "utf8");
+  await writeFile(ROOT_README_ZH, rootReadmeMarkdown(days, "zh"), "utf8");
 }

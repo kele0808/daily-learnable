@@ -10,7 +10,7 @@ async function main() {
 
   if (catalogOnly) {
     await writeCatalogReadmes();
-    console.log("updated README.md and digests/README.md");
+    console.log("updated README.md, README.zh-CN.md, and digests/README.md");
     return;
   }
 

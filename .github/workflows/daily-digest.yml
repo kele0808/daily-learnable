@@ -25,7 +25,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add digests README.md
+          git add digests README.md README.zh-CN.md
           if git diff --cached --quiet; then
             echo "no digest changes"
             exit 0
