@@ -1,9 +1,9 @@
-name: Daily digest
+name: Weekly digest
 
 on:
   schedule:
-    # 09:00 Asia/Shanghai
-    - cron: "0 1 * * *"
+    # Monday 09:00 Asia/Shanghai
+    - cron: "0 1 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -31,5 +31,5 @@ jobs:
             echo "no digest changes"
             exit 0
           fi
-          git commit -m "日报 $(TZ=Asia/Shanghai date +%F)"
+          git commit -m "周报 $(TZ=Asia/Shanghai date +%F)"
           git push

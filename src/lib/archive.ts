@@ -72,7 +72,7 @@ export async function writeCatalogReadmes(): Promise<void> {
     digestIndexMarkdown(days, {
       linkPrefix: "./",
       title: "日报存档",
-      intro: "每天拉取的 Agent 相关仓库。点日期看完整说明。",
+      intro: "每周一拉取的 Agent 相关仓库。点日期看完整说明。",
     }),
     "utf8",
   );

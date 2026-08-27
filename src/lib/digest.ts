@@ -1,4 +1,4 @@
-import { readArchivedDigest } from "@/lib/archive";
+import { listArchivedDays, readArchivedDigest } from "@/lib/archive";
 import { pickDailyRepos, scoreRepos } from "@/lib/curate";
 import { clampDigestDate, DIGEST_TIMEZONE, todayInShanghai } from "@/lib/dates";
 import { searchGithubRepos } from "@/lib/github";
@@ -7,7 +7,9 @@ import type { DigestResult } from "@/lib/types";
 export async function searchAndCurate(date: string): Promise<DigestResult> {
   const { repos, warnings } = await searchGithubRepos(date);
   const scored = scoreRepos(repos, date);
-  const picks = pickDailyRepos(scored, date);
+  const recent = (await listArchivedDays()).slice(0, 8);
+  const seen = new Set(recent.flatMap((day) => day.picks.map((pick) => pick.fullName)));
+  const picks = pickDailyRepos(scored, date, seen);
 
   return {
     date,

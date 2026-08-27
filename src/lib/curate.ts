@@ -37,34 +37,38 @@ export function scoreRepos(repos: GithubRepo[], dateKey: string): ScoredRepo[] {
     .sort((a, b) => b.score - a.score);
 }
 
-export function pickDailyRepos(scored: ScoredRepo[], dateKey: string): DigestPick[] {
+export function pickDailyRepos(
+  scored: ScoredRepo[],
+  dateKey: string,
+  seenNames: Set<string> = new Set(),
+): DigestPick[] {
   const pool = scored.slice(0, 40);
+  const target = targetCount(scored.length);
 
   const picked: ScoredRepo[] = [];
   const owners = new Map<string, number>();
   const focuses = new Map<Focus, number>();
 
-  for (const item of pool) {
-    if (picked.length >= targetCount(scored.length)) break;
-    const ownerCount = owners.get(item.repo.owner.login) ?? 0;
-    const focusCount = focuses.get(item.focus) ?? 0;
-    if (ownerCount >= 1) continue;
-    if (focusCount >= 3) continue;
-    if (tooSimilar(item, picked)) continue;
-    picked.push(item);
-    owners.set(item.repo.owner.login, ownerCount + 1);
-    focuses.set(item.focus, focusCount + 1);
-  }
-
-  if (picked.length < 4) {
+  const tryPick = (allowSeen: boolean) => {
     for (const item of pool) {
-      if (picked.length >= 6) break;
+      if (picked.length >= target) break;
       if (picked.some((p) => p.repo.id === item.repo.id)) continue;
+      if (!allowSeen && seenNames.has(item.repo.full_name)) continue;
+      const ownerCount = owners.get(item.repo.owner.login) ?? 0;
+      const focusCount = focuses.get(item.focus) ?? 0;
+      if (ownerCount >= 1) continue;
+      if (focusCount >= 2) continue;
+      if (tooSimilar(item, picked)) continue;
       picked.push(item);
+      owners.set(item.repo.owner.login, ownerCount + 1);
+      focuses.set(item.focus, focusCount + 1);
     }
-  }
+  };
 
-  return picked.slice(0, 10).map((item) => toPick(item, dateKey));
+  tryPick(false);
+  if (picked.length < 3) tryPick(true);
+
+  return picked.slice(0, 5).map((item) => toPick(item, dateKey));
 }
 
 export function isLearnableCandidate(repo: GithubRepo, dateKey: string): boolean {
@@ -204,10 +208,9 @@ function learningReason(item: ScoredRepo, dateKey: string): string {
 }
 
 function targetCount(poolSize: number): number {
-  if (poolSize >= 28) return 8;
-  if (poolSize >= 14) return 7;
-  if (poolSize >= 8) return 6;
-  return Math.max(1, Math.min(5, poolSize));
+  if (poolSize >= 16) return 5;
+  if (poolSize >= 8) return 4;
+  return Math.max(1, Math.min(3, poolSize));
 }
 
 function tooSimilar(item: ScoredRepo, picked: ScoredRepo[]): boolean {
