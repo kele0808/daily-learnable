@@ -1,9 +1,8 @@
 name: Weekly digest
 
+# Timed runs are off: Cursor Automation reviews repos before writing.
+# Use "Run workflow" only if you want a no-review fallback.
 on:
-  schedule:
-    # Monday 09:00 Asia/Shanghai
-    - cron: "0 1 * * 1"
   workflow_dispatch:
 
 permissions:
