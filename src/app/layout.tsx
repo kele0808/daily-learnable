@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "今日可学 · 每日 AI / Agent 仓库",
   description:
-    "每天精选 1–10 个当下值得学习的 AI、Agent、MCP 相关 GitHub 仓库。不按 star 排行。",
+    "每天精选 1–10 个当下值得看的 AI、Agent、MCP 相关 GitHub 仓库，优先高 star。",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -26,9 +26,9 @@ export default async function Home({
           每天 1–10 个当下值得看的 AI / Agent 仓库
         </h1>
         <p className="mt-3 max-w-2xl text-muted-foreground leading-7">
-          不按 star 排行。每天的精选会写进仓库的{" "}
+          每天从 GitHub 拉 Agent / MCP 相关仓库，优先高 star，写进{" "}
           <code className="rounded bg-muted px-1.5 py-0.5 text-sm">digests/</code>
-          ，GitHub 上随时能翻，网页也会优先读这些存档。
+          。GitHub 上按日期翻，网页也会优先读这些存档。
         </p>
       </header>
 
@@ -83,8 +83,8 @@ export default async function Home({
           <code className="rounded bg-muted px-1.5 py-0.5 text-xs">
             digests/{digest.date}.md
           </code>
-          。筛选规则：最近新建或仍在更新、描述清楚、主题落在 Agent / MCP / RAG /
-          评测。star 只展示，不参与打分。
+          。筛选规则：主题落在 Agent / MCP / RAG /
+          评测，近期仍在更新，优先高 star。
         </p>
         <p className="mt-2">
           JSON：{" "}

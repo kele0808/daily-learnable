@@ -17,7 +17,7 @@ export function digestToMarkdown(digest: DigestResult): string {
   const lines = [
     `# 今日可学 · ${formatChineseDate(digest.date)}`,
     "",
-    `选出 **${digest.count}** 个。不按 star 排行，只看当下能不能学到东西。`,
+    `选出 **${digest.count}** 个。优先高 star，同时要和 Agent 相关、近期仍在更新。`,
     "",
   ];
 
@@ -34,7 +34,7 @@ export function digestToMarkdown(digest: DigestResult): string {
     lines.push("");
     lines.push(`**为什么看：** ${pick.reason}`);
     lines.push("");
-    lines.push(`${tags.join(" · ")} · star ${pick.stars}（仅参考）`);
+    lines.push(`${tags.join(" · ")} · star ${pick.stars}`);
     lines.push("");
   });
 
@@ -91,7 +91,7 @@ export function rootReadmeMarkdown(days: DigestDaySummary[]): string {
     "",
     "每天从 GitHub 拉取当下值得看的 **Agent / MCP / 编程 Agent** 相关仓库，选出 1–10 个，写进 [`digests/`](digests/)。",
     "",
-    "不按 star 排行。关注的是最近出现、还在更新、描述清楚、能学到东西的项目。",
+    "优先高 star，同时要主题对、近期还在更新。",
     "",
     "## 日报",
     "",

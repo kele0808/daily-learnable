@@ -38,8 +38,7 @@ export function scoreRepos(repos: GithubRepo[], dateKey: string): ScoredRepo[] {
 }
 
 export function pickDailyRepos(scored: ScoredRepo[], dateKey: string): DigestPick[] {
-  const pool = scored.slice(0, 32);
-  shuffleInPlace(pool, hashString(`daily-learnable:${dateKey}`));
+  const pool = scored.slice(0, 40);
 
   const picked: ScoredRepo[] = [];
   const owners = new Map<string, number>();
@@ -83,10 +82,7 @@ export function isLearnableCandidate(repo: GithubRepo, dateKey: string): boolean
   const createdDays = daysBetween(dateKey, repo.created_at);
   const pushedDays = daysBetween(dateKey, repo.pushed_at.slice(0, 10));
   if (createdDays > 50 && pushedDays > 18) return false;
-  if (createdDays > 120 && repo.stargazers_count > 15000) return false;
-
-  // 0-star brand-new shells are allowed only if they already look like real code.
-  if (repo.stargazers_count === 0 && (repo.size < 80 || description.length < 48)) return false;
+  if (repo.stargazers_count < 10 && createdDays > 7) return false;
 
   const haystack = haystackOf(repo);
   return AGENT_NOW.some((word) => haystack.includes(word));
@@ -161,10 +157,8 @@ function computeScore(
     score += 4;
   }
 
-  // Stars are metadata, not rank. A small traction bonus beats empty spam,
-  // but 200 stars is not scored higher than 8.
-  if (repo.stargazers_count >= 5) score += 8;
-  if (repo.stargazers_count > 30000) score -= 12;
+  // Prefer higher-star repos; log scale so 200 vs 2k still matters without only keeping giants.
+  score += Math.log10(repo.stargazers_count + 1) * 28;
   return score;
 }
 
@@ -203,7 +197,7 @@ function learningReason(item: ScoredRepo, dateKey: string): string {
     rag: `${freshness}的 RAG 相关实现。适合看检索、分块和生成是怎么接到一起的。`,
     eval: `${freshness}的评测或观测项目。Agent 好不好用，最终还是要能量化。`,
     skill: `${freshness}的 Agent Skill / 技能包。适合看「可复用指令」是怎么写成仓库的。`,
-    "ai-tool": `${freshness}的 AI 工具。不看 star，看它解决的具体问题能不能迁移到你自己的工作流。`,
+    "ai-tool": `${freshness}的 AI 工具。star 更高说明更多人在用，适合对照看它解决的具体问题。`,
   };
 
   return byFocus[item.focus];
@@ -246,23 +240,3 @@ const AGENT_NOW = [
   "copilot",
 ];
 
-function hashString(value: string): number {
-  let hash = 2166136261;
-  for (let i = 0; i < value.length; i += 1) {
-    hash ^= value.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
-
-function shuffleInPlace<T>(items: T[], seed: number): void {
-  let state = seed || 1;
-  const random = () => {
-    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
-    return state / 4294967296;
-  };
-  for (let i = items.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(random() * (i + 1));
-    [items[i], items[j]] = [items[j], items[i]];
-  }
-}

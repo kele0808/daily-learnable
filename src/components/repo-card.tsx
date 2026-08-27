@@ -61,7 +61,7 @@ export function RepoCard({ pick, index, date }: { pick: DigestPick; index: numbe
       </CardContent>
       <CardFooter className="justify-between gap-3 text-xs text-muted-foreground">
         <span>{relativeDayLabel(pick.createdAt, date)}</span>
-        <span>star {formatStars(pick.stars)} · 仅作参考，不参与排序</span>
+        <span>star {formatStars(pick.stars)}</span>
       </CardFooter>
     </Card>
   );

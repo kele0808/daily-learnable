@@ -30,19 +30,19 @@ export function buildSearchQueries(dateKey: string): { label: string; query: str
   return [
     {
       label: "ai-agent",
-      query: `topic:ai-agent fork:false archived:false pushed:>${pushed} stars:3..50000`,
+      query: `topic:ai-agent fork:false archived:false pushed:>${pushed} stars:>20`,
     },
     {
       label: "mcp",
-      query: `(topic:mcp OR "model context protocol" OR mcp-server) fork:false archived:false created:>${created} stars:2..50000`,
+      query: `(topic:mcp OR "model context protocol" OR mcp-server) fork:false archived:false created:>${created} stars:>20`,
     },
     {
       label: "coding-agent",
-      query: `("coding agent" OR "ai agent" OR "computer use" OR "claude code" OR "agent skill") fork:false archived:false created:>${created} stars:2..50000`,
+      query: `("coding agent" OR "ai agent" OR "computer use" OR "claude code" OR "agent skill") fork:false archived:false created:>${created} stars:>20`,
     },
     {
-      label: "fresh",
-      query: `(topic:ai-agent OR topic:mcp OR topic:agents) fork:false archived:false created:>${isoDaysBefore(dateKey, 10)}`,
+      label: "popular",
+      query: `(topic:ai-agent OR topic:mcp OR topic:agents) fork:false archived:false stars:>100 pushed:>${isoDaysBefore(dateKey, 30)}`,
     },
   ];
 }
@@ -83,7 +83,7 @@ export async function searchGithubRepos(
 async function searchOnce(query: string): Promise<GithubRepo[]> {
   const url = new URL("https://api.github.com/search/repositories");
   url.searchParams.set("q", query);
-  url.searchParams.set("sort", "updated");
+  url.searchParams.set("sort", "stars");
   url.searchParams.set("order", "desc");
   url.searchParams.set("per_page", "30");
 
