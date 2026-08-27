@@ -1,12 +1,12 @@
 # 今日可学
 
-每周一从 GitHub 拉取当下值得看的 **Agent / MCP / 编程 Agent** 相关仓库，选出 3–5 个，写进 [`digests/`](digests/)。
+每天由 Cursor Agent 从 GitHub 搜索 **Agent / MCP / 编程 Agent** 相关仓库，先 review 再选出 3–5 个，写进 [`digests/`](digests/)。
 
-优先高 star，同时要主题对、近期还在更新。
+优先高 star，并打开仓库看 README 和近期提交，丢掉空壳和灌水。
 
 ## 日报
 
-点日期看当周完整说明。
+点日期看当天完整说明。
 
 | 月份 | 日期 | 项目 |
 | --- | --- | --- |
