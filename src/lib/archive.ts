@@ -1,9 +1,15 @@
 import { readdir, readFile, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { digestIndexMarkdown, digestToMarkdown } from "@/lib/format-digest";
+import {
+  digestIndexMarkdown,
+  digestToMarkdown,
+  rootReadmeMarkdown,
+  type DigestDaySummary,
+} from "@/lib/format-digest";
 import type { DigestResult } from "@/lib/types";
 
 export const DIGESTS_DIR = path.join(process.cwd(), "digests");
+const ROOT_README = path.join(process.cwd(), "README.md");
 
 export async function readArchivedDigest(date: string): Promise<DigestResult | null> {
   try {
@@ -16,7 +22,7 @@ export async function readArchivedDigest(date: string): Promise<DigestResult | n
   }
 }
 
-export async function listArchivedDays(): Promise<{ date: string; count: number }[]> {
+export async function listArchivedDays(): Promise<DigestDaySummary[]> {
   let names: string[] = [];
   try {
     names = await readdir(DIGESTS_DIR);
@@ -24,12 +30,21 @@ export async function listArchivedDays(): Promise<{ date: string; count: number 
     return [];
   }
 
-  const days: { date: string; count: number }[] = [];
+  const days: DigestDaySummary[] = [];
   for (const name of names) {
     if (!name.endsWith(".json")) continue;
     const date = name.slice(0, -5);
     const digest = await readArchivedDigest(date);
-    if (digest) days.push({ date, count: digest.count });
+    if (digest) {
+      days.push({
+        date,
+        count: digest.count,
+        picks: digest.picks.map((pick) => ({
+          fullName: pick.fullName,
+          url: pick.url,
+        })),
+      });
+    }
   }
   return days.sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -45,9 +60,21 @@ export async function writeDigestArchive(digest: DigestResult): Promise<{
 
   await writeFile(jsonPath, `${JSON.stringify(archived, null, 2)}\n`, "utf8");
   await writeFile(markdownPath, digestToMarkdown(archived), "utf8");
-
-  const days = await listArchivedDays();
-  await writeFile(path.join(DIGESTS_DIR, "README.md"), digestIndexMarkdown(days), "utf8");
+  await writeCatalogReadmes();
 
   return { jsonPath, markdownPath };
+}
+
+export async function writeCatalogReadmes(): Promise<void> {
+  const days = await listArchivedDays();
+  await writeFile(
+    path.join(DIGESTS_DIR, "README.md"),
+    digestIndexMarkdown(days, {
+      linkPrefix: "./",
+      title: "日报存档",
+      intro: "每天拉取的 Agent 相关仓库。点日期看完整说明。",
+    }),
+    "utf8",
+  );
+  await writeFile(ROOT_README, rootReadmeMarkdown(days), "utf8");
 }

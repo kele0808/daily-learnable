@@ -1,11 +1,19 @@
-import { readArchivedDigest, writeDigestArchive } from "../src/lib/archive";
+import { readArchivedDigest, writeCatalogReadmes, writeDigestArchive } from "../src/lib/archive";
 import { isValidDateKey, todayInShanghai } from "../src/lib/dates";
 import { searchAndCurate } from "../src/lib/digest";
 
 async function main() {
   const args = process.argv.slice(2);
   const force = args.includes("--force");
+  const catalogOnly = args.includes("--catalog");
   const dateArg = args.find((arg) => !arg.startsWith("--"));
+
+  if (catalogOnly) {
+    await writeCatalogReadmes();
+    console.log("updated README.md and digests/README.md");
+    return;
+  }
+
   const date = dateArg && isValidDateKey(dateArg) ? dateArg : todayInShanghai();
 
   if (!force) {

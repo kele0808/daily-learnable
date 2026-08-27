@@ -1,6 +1,17 @@
 import { focusLabel } from "@/lib/curate";
 import { formatChineseDate } from "@/lib/dates";
-import type { DigestResult } from "@/lib/types";
+import type { DigestPick, DigestResult } from "@/lib/types";
+
+export type DigestDaySummary = {
+  date: string;
+  count: number;
+  picks: Pick<DigestPick, "fullName" | "url">[];
+};
+
+export function monthLabel(date: string): string {
+  const [year, month] = date.split("-");
+  return `${year}年${Number(month)}月`;
+}
 
 export function digestToMarkdown(digest: DigestResult): string {
   const lines = [
@@ -35,23 +46,67 @@ export function digestToMarkdown(digest: DigestResult): string {
   return lines.join("\n");
 }
 
-export function digestIndexMarkdown(
-  days: { date: string; count: number }[],
+export function catalogTable(
+  days: DigestDaySummary[],
+  linkPrefix: string,
 ): string {
   const rows = days
     .slice()
     .sort((a, b) => b.date.localeCompare(a.date))
-    .map((day) => `| [${day.date}](./${day.date}.md) | ${day.count} |`)
+    .map((day) => {
+      const projects =
+        day.picks.length > 0
+          ? day.picks
+              .map((pick) => `[${pick.fullName}](${pick.url})`)
+              .join(" · ")
+          : "—";
+      return `| ${monthLabel(day.date)} | [${day.date}](${linkPrefix}${day.date}.md) | ${projects} |`;
+    })
     .join("\n");
 
   return [
-    "# 日报存档",
+    "| 月份 | 日期 | 项目 |",
+    "| --- | --- | --- |",
+    rows || "| — | — | 还没有日报 |",
+  ].join("\n");
+}
+
+export function digestIndexMarkdown(
+  days: DigestDaySummary[],
+  options: { linkPrefix: string; title: string; intro: string },
+): string {
+  return [
+    `# ${options.title}`,
     "",
-    "Cursor Automation 或 `npm run digest` 每天把精选写进这里。打开某一天的 `.md` 就能看。",
+    options.intro,
     "",
-    "| 日期 | 条数 |",
-    "| --- | ---: |",
-    rows || "| （还没有日报） | 0 |",
+    catalogTable(days, options.linkPrefix),
+    "",
+  ].join("\n");
+}
+
+export function rootReadmeMarkdown(days: DigestDaySummary[]): string {
+  return [
+    "# 今日可学",
+    "",
+    "每天从 GitHub 拉取当下值得看的 **Agent / MCP / 编程 Agent** 相关仓库，选出 1–10 个，写进 [`digests/`](digests/)。",
+    "",
+    "不按 star 排行。关注的是最近出现、还在更新、描述清楚、能学到东西的项目。",
+    "",
+    "## 日报",
+    "",
+    "点日期看当天完整说明。",
+    "",
+    catalogTable(days, "digests/"),
+    "",
+    "## 本地预览",
+    "",
+    "```bash",
+    "npm install",
+    "npm run dev",
+    "```",
+    "",
+    "打开 http://127.0.0.1:3847 。补生成某一天：`npm run digest`。",
     "",
   ].join("\n");
 }
