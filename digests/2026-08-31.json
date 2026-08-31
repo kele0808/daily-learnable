@@ -1,0 +1,156 @@
+{
+  "date": "2026-08-31",
+  "timezone": "Asia/Shanghai",
+  "count": 5,
+  "picks": [
+    {
+      "id": 1010681419,
+      "name": "learn-claude-code",
+      "fullName": "shareAI-lab/learn-claude-code",
+      "url": "https://github.com/shareAI-lab/learn-claude-code",
+      "description": "Bash is all you need -  A nano claude code–like 「agent harness」, built from 0 to 1",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agent-development",
+        "ai-agent",
+        "claude",
+        "claude-code",
+        "educational"
+      ],
+      "stars": 75674,
+      "createdAt": "2025-06-29T15:34:15Z",
+      "pushedAt": "2026-08-26T16:38:22Z",
+      "owner": "shareAI-lab",
+      "ownerUrl": "https://github.com/shareAI-lab",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/189210346?v=4",
+      "focus": "coding-agent",
+      "reason": "按 s01–s17 把 Claude Code 式 harness 拆开：agent loop、权限、subagent、skill loading、context compact、MCP plugin。上周还在修 Windows 破坏性命令匹配。适合对着每一课对照自己怎么写工具和权限门。",
+      "signals": [
+        "coding-agent",
+        "agent",
+        "learn-by-reading"
+      ]
+    },
+    {
+      "id": 1147094660,
+      "name": "nanobot",
+      "fullName": "HKUDS/nanobot",
+      "url": "https://github.com/HKUDS/nanobot",
+      "description": "Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi-agent workflows, automation, and chat apps",
+      "language": "Python",
+      "topics": [
+        "agent-framework",
+        "ai-agent",
+        "ai-agents",
+        "chatbot",
+        "chatops",
+        "discord-bot"
+      ],
+      "stars": 47540,
+      "createdAt": "2026-02-01T07:16:15Z",
+      "pushedAt": "2026-08-30T16:06:16Z",
+      "owner": "HKUDS",
+      "ownerUrl": "https://github.com/HKUDS",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/118165258?v=4",
+      "focus": "agent",
+      "reason": "自称小核心的自托管 Agent 框架：tools、Dream 长期记忆、MCP、multi-agent、cron 都在 nanobot/ 包里。这周刚把 transcript 组装从 agent 挪到 runner，IMAP 改成先拉头再拉正文。适合看一个还能读完的个人 Agent runtime 怎么接聊天软件。",
+      "signals": [
+        "mcp",
+        "multi-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1133901637,
+      "name": "ouroboros",
+      "fullName": "Q00/ouroboros",
+      "url": "https://github.com/Q00/ouroboros",
+      "description": "Agent OS: the agent gets smarter on its own. We just hold the line: the grading command and expected result never make it into the success contract we hand it. Interview-gated, staged evaluation, budgeted evolution loop. MCP server, 13 runtimes: Claude Code, Codex CLI, Gemini CLI, OpenCode, Copilot, Kiro and more.",
+      "language": "Python",
+      "topics": [
+        "agent-os",
+        "agentic-ai",
+        "ai-agent",
+        "ai-coding-agent",
+        "claude-code",
+        "cli"
+      ],
+      "stars": 5735,
+      "createdAt": "2026-01-14T01:14:04Z",
+      "pushedAt": "2026-08-30T19:56:23Z",
+      "owner": "Q00",
+      "ownerUrl": "https://github.com/Q00",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/31264094?v=4",
+      "focus": "eval",
+      "reason": "评测合同和成功标准分开：interview 先打 ambiguity，评分命令和期望结果不进交给 Agent 的 success contract。evaluation/ 是机械→语义→多模型共识，evolution/ 有预算代数。这周默认装 MCP v2，还在修 Windows 上的 orchestrator 测试。适合看「Agent 自己变聪明」时评测怎么不被它背下来。",
+      "signals": [
+        "eval",
+        "mcp",
+        "coding-agent"
+      ]
+    },
+    {
+      "id": 1129940957,
+      "name": "headroom",
+      "fullName": "headroomlabs-ai/headroom",
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "anthropic",
+        "claude-code",
+        "compression",
+        "context-engineering"
+      ],
+      "stars": 68113,
+      "createdAt": "2026-01-07T19:58:51Z",
+      "pushedAt": "2026-08-30T10:07:52Z",
+      "owner": "headroomlabs-ai",
+      "ownerUrl": "https://github.com/headroomlabs-ai",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/294291659?v=4",
+      "focus": "mcp",
+      "reason": "给编码 Agent 做的上下文压缩层：库、本地 proxy、MCP（headroom_compress / retrieve / stats）。ContentRouter 按 JSON / AST / 文本分流，这周还在修 cache-aware 计价和 compress() 复用 detect。适合看工具输出怎么在进模型前被压掉 20%–95% 还不丢答案。",
+      "signals": [
+        "mcp",
+        "rag",
+        "agent"
+      ]
+    },
+    {
+      "id": 1200597263,
+      "name": "graphify",
+      "fullName": "Graphify-Labs/graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "language": "Python",
+      "topics": [
+        "ai-agents",
+        "antigravity",
+        "ast",
+        "claude-code",
+        "code-analysis",
+        "code-search"
+      ],
+      "stars": 112661,
+      "createdAt": "2026-04-03T15:49:07Z",
+      "pushedAt": "2026-08-30T15:03:47Z",
+      "owner": "Graphify-Labs",
+      "ownerUrl": "https://github.com/Graphify-Labs",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/297659074?v=4",
+      "focus": "rag",
+      "reason": "不用向量库：tree-sitter AST 在本地把仓库收成可查询知识图，边标 EXTRACTED / INFERRED。这周还在修 Go / C# / Kotlin 的继承边。`uv tool install graphifyy && graphify install` 就能当 /graphify skill。适合对照向量 RAG 看「问路径、不 grep」怎么落地。",
+      "signals": [
+        "rag",
+        "skill",
+        "mcp"
+      ]
+    }
+  ],
+  "searched": 88,
+  "considered": 25,
+  "source": "github",
+  "warnings": []
+}
