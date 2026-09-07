@@ -1,0 +1,153 @@
+{
+  "date": "2026-09-07",
+  "timezone": "Asia/Shanghai",
+  "count": 5,
+  "picks": [
+    {
+      "id": 1216785679,
+      "name": "DeepSeek-Reasonix",
+      "fullName": "esengine/DeepSeek-Reasonix",
+      "url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "description": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "language": "Go",
+      "topics": [
+        "agent",
+        "agent-framework",
+        "ai-agent",
+        "ai-coding",
+        "cli",
+        "coding-agent"
+      ],
+      "stars": 35431,
+      "createdAt": "2026-04-21T08:27:02Z",
+      "pushedAt": "2026-09-07T00:18:08Z",
+      "owner": "esengine",
+      "ownerUrl": "https://github.com/esengine",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/18465053?v=4",
+      "focus": "coding-agent",
+      "reason": "按 prefix-cache 写长跑：compact.go 只在窗口 80% 才压、留 16% 原文尾巴，compaction 指令是唯一新消息好让 KV cache 复用；cache_shape.go 哈希 system/tools/prefix 解释 cache miss。这周刚把工具参数错误改成可恢复。适合对着 Go 读「会不会把 cache 打穿」。",
+      "signals": [
+        "coding-agent",
+        "agent",
+        "mcp"
+      ]
+    },
+    {
+      "id": 953683578,
+      "name": "serena",
+      "fullName": "oraios/serena",
+      "url": "https://github.com/oraios/serena",
+      "description": "A powerful MCP toolkit for coding, providing semantic retrieval and editing capabilities  - the IDE for your agent",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-coding",
+        "claude",
+        "claude-code",
+        "codex"
+      ],
+      "stars": 28906,
+      "createdAt": "2025-03-23T22:35:24Z",
+      "pushedAt": "2026-09-06T11:51:53Z",
+      "owner": "oraios",
+      "ownerUrl": "https://github.com/oraios",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/181485370?v=4",
+      "focus": "mcp",
+      "reason": "不是再包一层聊天 MCP：symbol_tools.py 用 SolidLSP 做符号总览和符号级编辑，mcp.py 把工具 schema 洗成 Codex 能吃的 OpenAI 形态。这周还在修 document symbol 缓存和 Kotlin 多实例 LSP 隔离。适合对照静态 AST 图，看「活的语言服务器当 Agent IDE」怎么落地。",
+      "signals": [
+        "mcp",
+        "coding-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1032170083,
+      "name": "harbor",
+      "fullName": "harbor-framework/harbor",
+      "url": "https://github.com/harbor-framework/harbor",
+      "description": "Framework for evaluating and improving agents ",
+      "language": "Python",
+      "topics": [
+        "evals",
+        "rl-environments",
+        "terminal-bench"
+      ],
+      "stars": 4992,
+      "createdAt": "2025-08-04T23:28:26Z",
+      "pushedAt": "2026-09-07T01:06:27Z",
+      "owner": "harbor-framework",
+      "ownerUrl": "https://github.com/harbor-framework",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/256467836?v=4",
+      "focus": "eval",
+      "reason": "Terminal-Bench 作者的评测框架。trial.py 的 Trial ABC 管 setup/teardown/hooks，adapters/ 里 80+ 套题，`harbor run --dataset terminal-bench@2.0 --agent claude-code` 就能在 Docker 或 Daytona 并行跑。这周加了 Hub agent catalog，还在给 swe-agent 开 completion_kwargs。适合看「评别人家的 Agent」怎么做成可复现环境。",
+      "signals": [
+        "eval",
+        "coding-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1197656406,
+      "name": "open-multi-agent",
+      "fullName": "open-multi-agent/open-multi-agent",
+      "url": "https://github.com/open-multi-agent/open-multi-agent",
+      "description": "TypeScript multi-agent framework that runs in your own environment: consequential actions wait for approval and every run leaves a verifiable record. Describe the goal, not the graph. 13 built-in providers (Claude, OpenAI, Gemini, DeepSeek and more) plus any OpenAI-compatible endpoint, local models included.",
+      "language": "TypeScript",
+      "topics": [
+        "agent-framework",
+        "agent-orchestration",
+        "agentic-ai",
+        "ai-agents",
+        "ai-governance",
+        "anthropic"
+      ],
+      "stars": 6884,
+      "createdAt": "2026-03-31T19:07:34Z",
+      "pushedAt": "2026-09-06T18:41:30Z",
+      "owner": "open-multi-agent",
+      "ownerUrl": "https://github.com/open-multi-agent",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/279300633?v=4",
+      "focus": "multi-agent",
+      "reason": "TypeScript 里「先写目标、运行时再拆 DAG」。coordinator.ts 解析任务 JSON（verify judges 不进模型输出），scheduler.ts 默认 dependency-first，consequential.ts 只看 tool.consequential 元数据决定是否拦下，prompt/参数故意不参与分类。`npm create oma-app` 有无 key 的脚本化 demo。适合看审批和调度怎么写成可回放记录。",
+      "signals": [
+        "multi-agent",
+        "mcp",
+        "eval"
+      ]
+    },
+    {
+      "id": 1255217938,
+      "name": "loopx",
+      "fullName": "huangruiteng/loopx",
+      "url": "https://github.com/huangruiteng/loopx",
+      "description": "Long-horizon agent control plane for durable, governed work across Codex, Claude Code, and other harnesses.",
+      "language": "Python",
+      "topics": [
+        "agent-control-plane",
+        "agent-harness",
+        "agent-ops",
+        "ai-agents",
+        "codex",
+        "dsh-plugin"
+      ],
+      "stars": 5667,
+      "createdAt": "2026-05-31T14:58:56Z",
+      "pushedAt": "2026-09-06T23:46:36Z",
+      "owner": "huangruiteng",
+      "ownerUrl": "https://github.com/huangruiteng",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/14976749?v=4",
+      "focus": "agent",
+      "reason": "不替代 Codex/Claude Code，只在上面做长程控制面。coordination/todo_claim.ts 用 schema 化 decision/receipt 原子认领 Todo，带 lease 和 dry_run。这周刚合入 native todo ownership transaction，还有 Agent 授权的 typed periodic report。适合看「harness 只干一截、目标/配额/交接留在控制面」怎么拆。",
+      "signals": [
+        "agent",
+        "coding-agent",
+        "learn-by-reading"
+      ]
+    }
+  ],
+  "searched": 96,
+  "considered": 20,
+  "source": "github",
+  "warnings": []
+}
