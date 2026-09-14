@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-14",
+  "timezone": "Asia/Shanghai",
+  "count": 4,
+  "picks": [
+    {
+      "id": 1269395331,
+      "name": "devspace",
+      "fullName": "Waishnav/devspace",
+      "url": "https://github.com/Waishnav/devspace",
+      "description": "Minimal Coding Agent Harness on MCP for ChatGPT, Claude, Hermes, Grok Bot, OpenClaw",
+      "language": "TypeScript",
+      "topics": [
+        "agent-orchestration",
+        "chatgpt",
+        "claude",
+        "claude-code",
+        "codex",
+        "dyanmic-workflow"
+      ],
+      "stars": 4701,
+      "createdAt": "2026-06-14T16:57:27Z",
+      "pushedAt": "2026-09-14T01:04:11Z",
+      "owner": "Waishnav",
+      "ownerUrl": "https://github.com/Waishnav",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/86405648?v=4",
+      "focus": "mcp",
+      "reason": "不是再包一层聊天 MCP：process-sessions.ts 把 exec yield 硬顶在 12s（默认 10s），stdin 交互另走更短窗口，避免 MCP 工具把长命令堵死；LocalAgentManager 只做 turn 生命周期，Claude/Codex/OpenCode/Pi 全在 driver 下面。这周还在砍模型可见指令、钉死 yield 上限。适合看「ChatGPT 当 Codex」时进程和子 Agent 怎么被 MCP 管住。",
+      "signals": [
+        "mcp",
+        "coding-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1309751899,
+      "name": "trueforge",
+      "fullName": "truefoundry/trueforge",
+      "url": "https://github.com/truefoundry/trueforge",
+      "description": "The open-source agent harness - the runtime layer that turns an LLM into a working agent.",
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "agentic-ai",
+        "agents",
+        "harness",
+        "harness-engineering"
+      ],
+      "stars": 5414,
+      "createdAt": "2026-07-23T09:16:13Z",
+      "pushedAt": "2026-09-13T22:40:27Z",
+      "owner": "truefoundry",
+      "ownerUrl": "https://github.com/truefoundry",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/93512441?v=4",
+      "focus": "agent",
+      "reason": "SessionHandle.createTurn 要求 input 必须同质（全是用户消息，或全是审批/工具回包），开下一 turn 会先 freeze 上一 turn；sandbox.configureCodeMode 只从主线程 toolSets 接一次，再让子线程共用沙箱。AgentThreadOrchestrator + DeferredTool 把延迟装载工具写进循环。这周在收紧命名并补 Python SDK。适合对着 TypeScript 读「会话/回合/线程」怎么拆成可持久化 API。",
+      "signals": [
+        "agent",
+        "mcp",
+        "coding-agent"
+      ]
+    },
+    {
+      "id": 1258496446,
+      "name": "Tracely-ai",
+      "fullName": "Jwuthri/Tracely-ai",
+      "url": "https://github.com/Jwuthri/Tracely-ai",
+      "description": "Trace-native CI/CD for AI agents — production failures become regression tests that block the PR. Auto-detect, cluster, freeze into hermetic cases, replay in CI for $0.",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agent-observability",
+        "ai-agents",
+        "ci-cd",
+        "clickhouse",
+        "evals"
+      ],
+      "stars": 1411,
+      "createdAt": "2026-06-03T16:26:23Z",
+      "pushedAt": "2026-09-11T19:56:27Z",
+      "owner": "Jwuthri",
+      "ownerUrl": "https://github.com/Jwuthri",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/19627509?v=4",
+      "focus": "eval",
+      "reason": "Harbor 是「拿数据集评 Agent」，这里是「线上失败轨迹本身就是测试」。FixtureBundle.capture 按顺序冻住 TOOL/GENERATION span（含 error 和 tool_call_id），contract.py 用 required/forbidden tools + match_mode 做 fail-to-pass；GateService.replay_suite 没 fixture 就报执行错误，绝不空跑。这周还在给 gate 加参数。适合看 $0 回放怎么做成拦 PR 的合同。",
+      "signals": [
+        "eval",
+        "agent",
+        "mcp"
+      ]
+    },
+    {
+      "id": 922406522,
+      "name": "rllm",
+      "fullName": "rllm-org/rllm",
+      "url": "https://github.com/rllm-org/rllm",
+      "description": "Democratizing Reinforcement Learning for LLMs",
+      "language": "Python",
+      "topics": [
+        "agent-framework",
+        "agentic-workflow",
+        "coding-agent",
+        "distributed-training",
+        "llm-reasoning",
+        "llm-training"
+      ],
+      "stars": 5823,
+      "createdAt": "2025-01-26T05:31:40Z",
+      "pushedAt": "2026-09-12T21:26:46Z",
+      "owner": "rllm-org",
+      "ownerUrl": "https://github.com/rllm-org",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/221438497?v=4",
+      "focus": "eval",
+      "reason": "同一份 @rollout 函数既跑 eval 也进 GRPO。BaseCliHarness 不解析 CLI stdout，只在沙箱里装/配/exec，轨迹靠 gateway 把 LLM 调用打到 /sessions/<uid>/v1。这周刚修层级 task ID 在 GRPO 分组里被拍平。适合对照 Harbor 看「评完还要训练」时 harness 和 reward 怎么共用。",
+      "signals": [
+        "eval",
+        "coding-agent",
+        "agent"
+      ]
+    }
+  ],
+  "searched": 112,
+  "considered": 25,
+  "source": "github",
+  "warnings": []
+}
