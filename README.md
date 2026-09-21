@@ -12,6 +12,7 @@ Click a date for that week's write-up.
 
 | Month | Date | Projects |
 | --- | --- | --- |
+| Sep 2026 | [2026-09-21](digests/2026-09-21.md) | [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) · [NVlabs/SoL-Pi](https://github.com/NVlabs/SoL-Pi) · [the-open-engine/zeroshot](https://github.com/the-open-engine/zeroshot) · [itayinbarr/little-coder](https://github.com/itayinbarr/little-coder) |
 | Sep 2026 | [2026-09-14](digests/2026-09-14.md) | [Waishnav/devspace](https://github.com/Waishnav/devspace) · [truefoundry/trueforge](https://github.com/truefoundry/trueforge) · [Jwuthri/Tracely-ai](https://github.com/Jwuthri/Tracely-ai) · [rllm-org/rllm](https://github.com/rllm-org/rllm) |
 | Sep 2026 | [2026-09-07](digests/2026-09-07.md) | [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) · [oraios/serena](https://github.com/oraios/serena) · [harbor-framework/harbor](https://github.com/harbor-framework/harbor) · [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) · [huangruiteng/loopx](https://github.com/huangruiteng/loopx) |
 | Aug 2026 | [2026-08-31](digests/2026-08-31.md) | [shareAI-lab/learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) · [HKUDS/nanobot](https://github.com/HKUDS/nanobot) · [Q00/ouroboros](https://github.com/Q00/ouroboros) · [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) · [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) |
