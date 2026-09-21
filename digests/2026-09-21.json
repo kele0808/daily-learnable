@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-21",
+  "timezone": "Asia/Shanghai",
+  "count": 4,
+  "picks": [
+    {
+      "id": 1342461518,
+      "name": "FrontierAgent",
+      "fullName": "ApodexAI/FrontierAgent",
+      "url": "https://github.com/ApodexAI/FrontierAgent",
+      "description": "🧩 FrontierAgent, our agent framework, open-sourced alongside it — native command-line TUI, ReAct and Agent Team modes, one command on macOS and Linux, no preinstall, no hard Docker dependency.",
+      "language": "Python",
+      "topics": [
+        "agent-orchestration",
+        "agentic-ai",
+        "agentic-framework",
+        "ai-agents",
+        "harness",
+        "multi-agent"
+      ],
+      "stars": 4220,
+      "createdAt": "2026-08-22T05:07:35Z",
+      "pushedAt": "2026-09-20T22:25:40Z",
+      "owner": "ApodexAI",
+      "ownerUrl": "https://github.com/ApodexAI",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/276468590?v=4",
+      "focus": "multi-agent",
+      "reason": "不是再包一层聊天桌面：render_sandbox_fs_note 按 sandbox_mode 说实话——container/native 时 /workspace 是协调者和所有子 Agent 共享，bwrap 时每个子进程私有，跨 Agent 复用只能走协调者报告。subagent_runtime 给 bwrap 单独套沙箱，/outputs 默认只读除非点名可写。这周还在修 web tool preflight 和 benchmark 先 shuffle 再截断。适合对照 OMA 看「任务板 + 沙箱拓扑」怎么写成运行时不撒谎。",
+      "signals": [
+        "multi-agent",
+        "coding-agent",
+        "eval",
+        "agent"
+      ]
+    },
+    {
+      "id": 1354887280,
+      "name": "SoL-Pi",
+      "fullName": "NVlabs/SoL-Pi",
+      "url": "https://github.com/NVlabs/SoL-Pi",
+      "description": "SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses",
+      "language": "TypeScript",
+      "topics": [],
+      "stars": 2663,
+      "createdAt": "2026-09-02T14:48:47Z",
+      "pushedAt": "2026-09-20T23:23:28Z",
+      "owner": "NVlabs",
+      "ownerUrl": "https://github.com/NVlabs",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/2695301?v=4",
+      "focus": "agent",
+      "reason": "NVIDIA 把 auto-research 筛出来的四条效率机制做成 Pi 扩展，不 fork Pi。executeMutationThenRun 把 edit/write 和 then_run 放进同一文件队列槽，命令前再 sha256 一次，文件变了就标 THEN_RUN_SKIPPED 不跑。ObservationPack 不改历史，只在 pi.on(\"context\") 投影层：大结果先完整发 FULL_SENDS 次，之后换成稳定占位，obs_recall 按字节分页；打包失败 fail-open。这周刚链上 arXiv 并把 Pi 钉到 0.85.1。适合看「少花 token 但不藏证据」怎么写成扩展。",
+      "signals": [
+        "agent",
+        "coding-agent"
+      ]
+    },
+    {
+      "id": 1122859216,
+      "name": "zeroshot",
+      "fullName": "the-open-engine/zeroshot",
+      "url": "https://github.com/the-open-engine/zeroshot",
+      "description": "Independent executor–verifier orchestration for software changes.",
+      "language": "Rust",
+      "topics": [
+        "agent-loops",
+        "agent-orchestration",
+        "agentic-workflow",
+        "ai-agent",
+        "ai-agents",
+        "autonomous-agents"
+      ],
+      "stars": 1844,
+      "createdAt": "2025-12-25T17:12:45Z",
+      "pushedAt": "2026-09-20T12:05:37Z",
+      "owner": "the-open-engine",
+      "ownerUrl": "https://github.com/the-open-engine",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/223873207?v=4",
+      "focus": "multi-agent",
+      "reason": "写代码的 Agent 不裁决「做完了」。NativeV2Supervisor.drive 一次只推一个 admitted run：历史过 FullV1Reducer，先把 reducer 授权的 dispatch 记进 SQLite ledger，再 settle 完成。delivery_unconfirmed：Required 策略或图里唯一 delivery 节点时，成功必须带匹配 receipt，而且所有 writer 必须在 delivery 开始前停写。这周在加失败 run 从保留 workspace resume，以及把本地 profile 暴露成 ACP。适合看「图才是编排」怎么落成 Rust 监督器。",
+      "signals": [
+        "multi-agent",
+        "coding-agent",
+        "agent"
+      ]
+    },
+    {
+      "id": 1207740274,
+      "name": "little-coder",
+      "fullName": "itayinbarr/little-coder",
+      "url": "https://github.com/itayinbarr/little-coder",
+      "description": "A harness optimized to smaller LLMs",
+      "language": "TypeScript",
+      "topics": [
+        "ai-coding-assistant",
+        "aider-polygot",
+        "benchmark",
+        "code-generation",
+        "coding-agent",
+        "coding-agents"
+      ],
+      "stars": 2606,
+      "createdAt": "2026-04-11T10:37:11Z",
+      "pushedAt": "2026-09-18T22:17:59Z",
+      "owner": "itayinbarr",
+      "ownerUrl": "https://github.com/itayinbarr",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/12065558?v=4",
+      "focus": "coding-agent",
+      "reason": "不是再做一个 Claude Code 克隆：launcher 用 --no-extensions 只装绑定的那套，冷启动压在约 7k token。read-guard-edit 在 tool_call 拦没读过的 edit，oldText 必须来自本 session 成功 Read/Write，禁止小模型猜文件。子 coder 默认只读、永不授予 dispatch，避免扇出炸弹。这周刚修 edit deadlock，并把 edit/write 和 shell 放进同一确认门。适合对照 SoL-Pi 看「同一套 Pi，一个砍 token、一个教小模型别乱改」。",
+      "signals": [
+        "coding-agent",
+        "eval",
+        "agent"
+      ]
+    }
+  ],
+  "searched": 96,
+  "considered": 22,
+  "source": "github",
+  "warnings": []
+}
