@@ -1,0 +1,119 @@
+{
+  "date": "2026-09-28",
+  "timezone": "Asia/Shanghai",
+  "count": 4,
+  "picks": [
+    {
+      "id": 1018830110,
+      "name": "bub",
+      "fullName": "bubbuild/bub",
+      "url": "https://github.com/bubbuild/bub",
+      "description": "Bub it. Build it. A tiny agent runtime, composable with plugins.",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agents",
+        "ai",
+        "ai-agents",
+        "aiagentframework",
+        "bub"
+      ],
+      "stars": 1674,
+      "createdAt": "2025-07-13T06:16:21Z",
+      "pushedAt": "2026-09-28T01:04:33Z",
+      "owner": "bubbuild",
+      "ownerUrl": "https://github.com/bubbuild",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/264669564?v=4",
+      "focus": "agent",
+      "reason": "不是再包一层聊天桌面：process_inbound 把一回合拆成 resolve_session → load_state → build_prompt → run_model → save_state → dispatch，每段都是 pluggy hook，后装的插件盖过 builtin。上下文不靠可变 session，而是 Tape 只追加 message/tool_call/anchor，prompt 每次从磁带重选。ShellManager 用 process group 等子进程，取消时先 shield 再清组；这周刚让超时 bash 的输出留下、runtime 退出才收壳，并把 continue_prompt 改成可选。适合看「小运行时」怎么把回合、证据和 shell 生命周期写成可替换钩子。",
+      "signals": [
+        "agent",
+        "skill"
+      ]
+    },
+    {
+      "id": 1215974868,
+      "name": "mercury-agent",
+      "fullName": "cosmicstack-labs/mercury-agent",
+      "url": "https://github.com/cosmicstack-labs/mercury-agent",
+      "description": "Soul-driven AI agent with permission-hardened tools, token budgets, and multi-channel access. Runs 24/7 from CLI, Telegram or More.",
+      "language": "TypeScript",
+      "topics": [
+        "ai-agent",
+        "ai-assistant",
+        "llm"
+      ],
+      "stars": 3167,
+      "createdAt": "2026-04-20T12:46:31Z",
+      "pushedAt": "2026-09-24T04:49:39Z",
+      "owner": "cosmicstack-labs",
+      "ownerUrl": "https://github.com/cosmicstack-labs",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/277752932?v=4",
+      "focus": "agent",
+      "reason": "不是只拦 sudo 黑名单：splitShellSegments 把 echo $(rm -rf ~)、管道、&& 和 $'...' 拆成段，blocked / safe-read 按段判，避免 echo * 洗白整串。checkFsAccess 写路径走 canonicalizePath，symlink 跳到可写 scope 外就拒。isSafeReadSegment 把 $TOKEN、~user、ANSI-C quoting 和 find -exec 踢出自动放行。这周还把 github_api 钉死 https + api.github.com，CLI 的 allow-all 不带去 web channel。适合看工具层权限怎么防「看起来像 cat」的命令。",
+      "signals": [
+        "agent"
+      ]
+    },
+    {
+      "id": 1146550474,
+      "name": "nono",
+      "fullName": "nolabs-ai/nono",
+      "url": "https://github.com/nolabs-ai/nono",
+      "description": "agent runtime security - zero trust, zero setup, zero latency.",
+      "language": "Rust",
+      "topics": [
+        "agent-sandbox",
+        "agent-security",
+        "ai-agent-sandbox",
+        "ai-agent-security",
+        "ai-agents",
+        "mcp"
+      ],
+      "stars": 4244,
+      "createdAt": "2026-01-31T09:25:45Z",
+      "pushedAt": "2026-09-27T21:23:52Z",
+      "owner": "nolabs-ai",
+      "ownerUrl": "https://github.com/nolabs-ai",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/289819636?v=4",
+      "focus": "mcp",
+      "reason": "不是再套一层容器：resolve_intercept_action 按 argv/env 命中 intercept 规则，每条可以自带 CommandSandboxConfig，没命中才 passthrough。这周把网络策略按有效命令范围切开——子工具不再继承整段 session 的网，并加了独立 Snap runtime group；代理拒绝写进 CLI 诊断脚。适合对照 mercury 看「应用层拆 shell」和「OS 拦截 + 每命令沙箱」差在哪。",
+      "signals": [
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1269124956,
+      "name": "delegate-skills",
+      "fullName": "amElnagdy/delegate-skills",
+      "url": "https://github.com/amElnagdy/delegate-skills",
+      "description": "Delegate a coding task to a separate coding agent CLI, review the diff, land the commit yourself — one per implementer.",
+      "language": "JavaScript",
+      "topics": [
+        "agent-skills",
+        "ai-coding-agent",
+        "antigravity",
+        "claude-code",
+        "claude-code-skills",
+        "codex"
+      ],
+      "stars": 2226,
+      "createdAt": "2026-06-14T10:35:48Z",
+      "pushedAt": "2026-09-20T19:29:41Z",
+      "owner": "amElnagdy",
+      "ownerUrl": "https://github.com/amElnagdy",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/7650147?v=4",
+      "focus": "skill",
+      "reason": "不是再堆 SKILL.md：每个 implementer 一份无依赖的 relay.mjs，只 spawn 对应 CLI 和 git，自己不联网、不写凭据。--read-only 故意做成 --sandbox --dangerously-skip-permissions——headless --print 没法回答权限提示，不这么配第一次 tool 就会被拒、跑空。落地看 touchedFiles（git porcelain），不信 agent 自述；relay 永不 commit。这周给 OpenCode 的 variant dial 加了 CLI 版本探测，并把 agy 权限陷阱写到实测平台/版本。适合看「把任务丢给另一个 coding agent」时沙箱和退出码怎么当合同。",
+      "signals": [
+        "skill",
+        "coding-agent"
+      ]
+    }
+  ],
+  "searched": 112,
+  "considered": 21,
+  "source": "github",
+  "warnings": []
+}
