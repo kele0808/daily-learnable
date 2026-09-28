@@ -4,6 +4,7 @@
 
 | 月份 | 日期 | 项目 |
 | --- | --- | --- |
+| 2026年9月 | [2026-09-28](./2026-09-28.md) | [bubbuild/bub](https://github.com/bubbuild/bub) · [cosmicstack-labs/mercury-agent](https://github.com/cosmicstack-labs/mercury-agent) · [nolabs-ai/nono](https://github.com/nolabs-ai/nono) · [amElnagdy/delegate-skills](https://github.com/amElnagdy/delegate-skills) |
 | 2026年9月 | [2026-09-21](./2026-09-21.md) | [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) · [NVlabs/SoL-Pi](https://github.com/NVlabs/SoL-Pi) · [the-open-engine/zeroshot](https://github.com/the-open-engine/zeroshot) · [itayinbarr/little-coder](https://github.com/itayinbarr/little-coder) |
 | 2026年9月 | [2026-09-14](./2026-09-14.md) | [Waishnav/devspace](https://github.com/Waishnav/devspace) · [truefoundry/trueforge](https://github.com/truefoundry/trueforge) · [Jwuthri/Tracely-ai](https://github.com/Jwuthri/Tracely-ai) · [rllm-org/rllm](https://github.com/rllm-org/rllm) |
 | 2026年9月 | [2026-09-07](./2026-09-07.md) | [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) · [oraios/serena](https://github.com/oraios/serena) · [harbor-framework/harbor](https://github.com/harbor-framework/harbor) · [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) · [huangruiteng/loopx](https://github.com/huangruiteng/loopx) |
