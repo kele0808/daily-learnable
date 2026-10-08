@@ -12,6 +12,7 @@
 
 | 月份 | 日期 | 项目 |
 | --- | --- | --- |
+| 2026年10月 | [2026-10-05](digests/2026-10-05.md) | [evalstate/fast-agent](https://github.com/evalstate/fast-agent) · [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) · [okf-memory/okf-agent-memory](https://github.com/okf-memory/okf-agent-memory) · [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP) |
 | 2026年9月 | [2026-09-28](digests/2026-09-28.md) | [bubbuild/bub](https://github.com/bubbuild/bub) · [cosmicstack-labs/mercury-agent](https://github.com/cosmicstack-labs/mercury-agent) · [nolabs-ai/nono](https://github.com/nolabs-ai/nono) · [amElnagdy/delegate-skills](https://github.com/amElnagdy/delegate-skills) |
 | 2026年9月 | [2026-09-21](digests/2026-09-21.md) | [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) · [NVlabs/SoL-Pi](https://github.com/NVlabs/SoL-Pi) · [the-open-engine/zeroshot](https://github.com/the-open-engine/zeroshot) · [itayinbarr/little-coder](https://github.com/itayinbarr/little-coder) |
 | 2026年9月 | [2026-09-14](digests/2026-09-14.md) | [Waishnav/devspace](https://github.com/Waishnav/devspace) · [truefoundry/trueforge](https://github.com/truefoundry/trueforge) · [Jwuthri/Tracely-ai](https://github.com/Jwuthri/Tracely-ai) · [rllm-org/rllm](https://github.com/rllm-org/rllm) |

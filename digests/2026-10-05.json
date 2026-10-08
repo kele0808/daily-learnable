@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-05",
+  "timezone": "Asia/Shanghai",
+  "count": 4,
+  "picks": [
+    {
+      "id": 918778709,
+      "name": "fast-agent",
+      "fullName": "evalstate/fast-agent",
+      "url": "https://github.com/evalstate/fast-agent",
+      "description": "Code, Build and Evaluate agents - excellent Model and Skills/MCP/ACP/A2A Support",
+      "language": "Python",
+      "topics": [
+        "a2a",
+        "acp",
+        "agent",
+        "agent-framework",
+        "agent-skills",
+        "cli"
+      ],
+      "stars": 3927,
+      "createdAt": "2025-01-18T20:39:51Z",
+      "pushedAt": "2026-10-04T20:42:38Z",
+      "owner": "evalstate",
+      "ownerUrl": "https://github.com/evalstate",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/1936278?v=4",
+      "focus": "mcp",
+      "reason": "不是把超长 MCP 结果整段塞进 history：bound_tool_result_for_llm 先 canonicalize 再按字节截断，retain 只在真截断时才跑。spool_tool_result 把完整 structured_content 整份写成 indented JSON（半截 JSON 不写，读出来没法 parse），文本按行切；模型侧只看到 notice，原文在 TransientArtifactStore。这周刚对齐 MCP skills 线协议，并让 oversized tool result 留在可读 spool。适合看「上下文预算」和「工具原文」怎么拆开。",
+      "signals": [
+        "mcp",
+        "skill",
+        "agent"
+      ]
+    },
+    {
+      "id": 1354059245,
+      "name": "agent-memory",
+      "fullName": "tigerless-labs/agent-memory",
+      "url": "https://github.com/tigerless-labs/agent-memory",
+      "description": "Long-term memory runtime for AI agents — plain Markdown as the source of truth, local ranked retrieval, and an independent sleep-time Manage layer. Claude Code and Codex share one store. No API key.",
+      "language": "Python",
+      "topics": [
+        "agent-memory",
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "llm",
+        "local-first"
+      ],
+      "stars": 2386,
+      "createdAt": "2026-09-01T21:52:29Z",
+      "pushedAt": "2026-10-02T16:21:12Z",
+      "owner": "tigerless-labs",
+      "ownerUrl": "https://github.com/tigerless-labs",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/285825190?v=4",
+      "focus": "rag",
+      "reason": "不是再做一个向量库当记忆：Markdown 文件是真相，SQLite/FTS 只是可删缓存。Recall.recall 先 eligibility 再 relevance×weight×recency，BM25 和向量走 fuse_candidates 做 RRF（k=60），--as-of 才读 history surface；命中返回路径，不贴正文。Manage 睡眠层确定性半边整理日期/权重，判断半边只能从菜单里选 merge/split/supersede/delete，且从不删文件。executor 的 Dialect 会关掉宿主自带记忆，否则分数算不清。这周刚接上 Muse host。适合看「检索返回路径」和「睡眠整理不删证据」。",
+      "signals": [
+        "rag",
+        "mcp",
+        "agent"
+      ]
+    },
+    {
+      "id": 1358571386,
+      "name": "okf-agent-memory",
+      "fullName": "okf-memory/okf-agent-memory",
+      "url": "https://github.com/okf-memory/okf-agent-memory",
+      "description": "Git-native persistent memory for AI coding agents. Implements Google OKF v0.2 with sub-300µs in-memory BM25 search, embedded MCP server, and progressive disclosure. Slashes token bloat by 80% with zero external databases or dependencies. Built in pure Go.",
+      "language": "Go",
+      "topics": [
+        "agent-memory",
+        "ai-agents",
+        "bm25",
+        "coding-agents",
+        "developer-tools",
+        "git-native"
+      ],
+      "stars": 751,
+      "createdAt": "2026-09-05T21:26:04Z",
+      "pushedAt": "2026-10-04T21:10:46Z",
+      "owner": "okf-memory",
+      "ownerUrl": "https://github.com/okf-memory",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/322091575?v=4",
+      "focus": "mcp",
+      "reason": "不是再堆一份 AGENTS.md：push 层用 AAG 把工作记忆钉在 400 token（LintContent 的 AAG-005，超了直接 error），pull 层 Bundle.SearchAdvanced 在内存里做 BM25，基线 0 token。RunMCPServerIO 自己读 bounded JSON-RPC 行（4MB 封顶），不引 MCP SDK。这周把 linter 改成同时报 managed block 和整文件 token，并禁止非人类 actor 往知识里写 human verification。适合对照 tigerless 看「睡眠整理文件系统」和「超短规范 + 按需检索」差在哪。",
+      "signals": [
+        "mcp",
+        "rag",
+        "skill"
+      ]
+    },
+    {
+      "id": 982517950,
+      "name": "Windows-MCP",
+      "fullName": "CursorTouch/Windows-MCP",
+      "url": "https://github.com/CursorTouch/Windows-MCP",
+      "description": "MCP Server for Computer Use in Windows",
+      "language": "Python",
+      "topics": [
+        "ai",
+        "desktop",
+        "mcp",
+        "tools",
+        "windows",
+        "windows-automation"
+      ],
+      "stars": 7678,
+      "createdAt": "2025-05-13T02:27:53Z",
+      "pushedAt": "2026-10-04T04:31:23Z",
+      "owner": "CursorTouch",
+      "ownerUrl": "https://github.com/CursorTouch",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/201312842?v=4",
+      "focus": "mcp",
+      "reason": "不是只把 UIA 树丢给模型：TreeElementBudget 默认 500 个元素，超额返回带 truncated 的半棵树，避免库存网格把目标应用卡死。ControlCoordinator 的 hook 自己 fail-open——心跳过期或队列失败就放行物理输入，不等人。arm_visible 要等 AI 指示器画出来才 suppress；截图前 pause_for_capture 先松手。这周修了 GetCursorPos argtypes 污染进程全局、并加上用户接管。适合看 Windows computer-use 怎么把「谁在握鼠标」写成可撤销租约。",
+      "signals": [
+        "mcp",
+        "coding-agent",
+        "agent"
+      ]
+    }
+  ],
+  "searched": 108,
+  "considered": 22,
+  "source": "github",
+  "warnings": []
+}
