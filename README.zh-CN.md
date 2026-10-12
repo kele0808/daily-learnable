@@ -12,6 +12,7 @@
 
 | 月份 | 日期 | 项目 |
 | --- | --- | --- |
+| 2026年10月 | [2026-10-12](digests/2026-10-12.md) | [edonadei/caliper](https://github.com/edonadei/caliper) · [N4darae/shrt](https://github.com/N4darae/shrt) · [20000419/fauxnix](https://github.com/20000419/fauxnix) · [aoci-spec/aoci-code](https://github.com/aoci-spec/aoci-code) |
 | 2026年10月 | [2026-10-05](digests/2026-10-05.md) | [evalstate/fast-agent](https://github.com/evalstate/fast-agent) · [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) · [okf-memory/okf-agent-memory](https://github.com/okf-memory/okf-agent-memory) · [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP) |
 | 2026年9月 | [2026-09-28](digests/2026-09-28.md) | [bubbuild/bub](https://github.com/bubbuild/bub) · [cosmicstack-labs/mercury-agent](https://github.com/cosmicstack-labs/mercury-agent) · [nolabs-ai/nono](https://github.com/nolabs-ai/nono) · [amElnagdy/delegate-skills](https://github.com/amElnagdy/delegate-skills) |
 | 2026年9月 | [2026-09-21](digests/2026-09-21.md) | [ApodexAI/FrontierAgent](https://github.com/ApodexAI/FrontierAgent) · [NVlabs/SoL-Pi](https://github.com/NVlabs/SoL-Pi) · [the-open-engine/zeroshot](https://github.com/the-open-engine/zeroshot) · [itayinbarr/little-coder](https://github.com/itayinbarr/little-coder) |
