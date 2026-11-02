@@ -4,6 +4,7 @@
 
 | 月份 | 日期 | 项目 |
 | --- | --- | --- |
+| 2026年11月 | [2026-11-02](./2026-11-02.md) | [osolmaz/switch](https://github.com/osolmaz/switch) · [reason-machines/reason-network](https://github.com/reason-machines/reason-network) · [mattpocock/sandcastle](https://github.com/mattpocock/sandcastle) · [kajisho5/ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) |
 | 2026年10月 | [2026-10-12](./2026-10-12.md) | [edonadei/caliper](https://github.com/edonadei/caliper) · [N4darae/shrt](https://github.com/N4darae/shrt) · [20000419/fauxnix](https://github.com/20000419/fauxnix) · [aoci-spec/aoci-code](https://github.com/aoci-spec/aoci-code) |
 | 2026年10月 | [2026-10-05](./2026-10-05.md) | [evalstate/fast-agent](https://github.com/evalstate/fast-agent) · [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) · [okf-memory/okf-agent-memory](https://github.com/okf-memory/okf-agent-memory) · [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP) |
 | 2026年9月 | [2026-09-28](./2026-09-28.md) | [bubbuild/bub](https://github.com/bubbuild/bub) · [cosmicstack-labs/mercury-agent](https://github.com/cosmicstack-labs/mercury-agent) · [nolabs-ai/nono](https://github.com/nolabs-ai/nono) · [amElnagdy/delegate-skills](https://github.com/amElnagdy/delegate-skills) |
